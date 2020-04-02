@@ -1,2 +1,6 @@
 flask
 gunicorn
+dnspython
+pendulum
+OTXv2
+pyyaml

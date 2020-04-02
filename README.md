@@ -4,6 +4,15 @@
 
 This utility spawned out of necessity to assist with sharing of malicious URLs in Slack.  Slack will automatically render or make a HTTP request when a URl is entered.  To assist myself and other security teams, I created this slash command application that will obfuscate and deobfuscate provided URLs.
 
+## Features
+
+This flask application currently has the following commands available and will continue to be expanded as needed:
+
+* obfuscaate - This will obfuscate a provided URL
+* deobfuscate - This will debofuscate a URL
+* dnsinfo - This will retrieve all DNS records for a given domain
+* submitioc - This will submit an IOC to AlienVault OTX
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
@@ -16,7 +25,8 @@ In order order to use this application, you will need:
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+In order to use the `submitiocs` slash command you need to enter your AlienVault OTX API Token in the [config.yml](config.yml) file.
+
 
 #### Python Requirements on Ubuntu
 
@@ -86,10 +96,11 @@ To add the slash command, follow these instructions:
 * Enter `/obfuscate` to add your new Slack slash command
 * Enter the command of '/obfuscate` 
 * Enter the URL of the your ubuntu server with the port and the endpoint you want
-    * There are two endpoints curently:
-        * `/obfuscate` and `/deobfuscate`
-    * Example: `http://5.5.5.5:8000/obfuscate`
-    * Example: `http://5.5.5.5:8000/deobfuscate`
+    * There are several endpoints available which support slack slash commands:
+        * `/obfuscate` - Example API Endpoint: `http://5.5.5.5:8000/obfuscate`
+        * `/deobfuscate` - Example API Endpoint: `http://5.5.5.5:8000/deobfuscate`
+        * `/dnsinfo` - Example API Endpoint: `http://5.5.5.5:8000/domain/dns`
+        * `/submitioc` - Example API Endpoint: `http://5.5.5.5:8000/otx/submit`
 * Make sure the method is POST
 * Add any descriptions or context that is needed
 * Click save!

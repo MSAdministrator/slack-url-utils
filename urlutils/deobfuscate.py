@@ -29,7 +29,6 @@ class DeObfuscate(object):
                 url = url.replace('hxxps', 'https').replace('hXXps', 'https')
         else:
             url = 'http://{}'.format(url)
-        
         url = url.replace('[','')
         url = url.replace(']','')
 
